@@ -176,7 +176,7 @@
         [self showMicButton];
     }
 
-
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ico_back"] style:UIBarButtonItemStyleDone target:self action:@selector(back:)];
 
     [self initialSetUp];
     [self fetchMessageFromDB];
@@ -213,10 +213,8 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-
     [[NSNotificationCenter defaultCenter]
      addObserver:self selector:@selector(newMessageHandler:) name:NEW_MESSAGE_NOTIFICATION  object:nil];
-
     [self.tabBarController.tabBar setHidden: YES];
 
     if([ALApplozicSettings isTemplateMessageEnabled]) {

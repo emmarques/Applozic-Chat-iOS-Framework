@@ -1366,40 +1366,12 @@
 #pragma mark - CUSTOM NAVIGATION BACK BUTTON
 //==============================================================================================================================================
 
--(UIView *)setCustomBackButton:(NSString *)text
-{
-    UIImage * backImage = [ALUtilityClass getImageFromFramworkBundle:@"bbb.png"];
-    backImage = [backImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:backImage];
-    [imageView setFrame:CGRectMake(-10, 0, 30, 30)];
-    [imageView setTintColor:[ALApplozicSettings getColorForNavigationItem]];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(imageView.frame.origin.x + imageView.frame.size.width - 5,
-                                                               imageView.frame.origin.y + 5 , 20, 15)];
-    
-    [label setTextColor:[ALApplozicSettings getColorForNavigationItem]];
-    [label setText:text];
-    [label sizeToFit];
-    
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0,
-                                                            imageView.frame.size.width + label.frame.size.width, imageView.frame.size.height)];
-    
-    view.bounds = CGRectMake(view.bounds.origin.x + 8, view.bounds.origin.y - 1, view.bounds.size.width, view.bounds.size.height);
-    if ([UIApplication sharedApplication].userInterfaceLayoutDirection == UIUserInterfaceLayoutDirectionRightToLeft) {
-        view.transform = CGAffineTransformMakeScale(-1.0, 1.0);
-        label.transform = CGAffineTransformMakeScale(-1.0, 1.0);
-    }
-    [view addSubview:imageView];
-    [view addSubview:label];
-    
-//    UIButton * button = [[UIButton alloc] initWithFrame:view.frame];
-//    [button addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
-    
+-(UIView *)setCustomBackButton:(NSString *)text {
+    UIImage * backImage = [UIImage imageNamed:@"ico_back"];
+    UIImageView *view = [[UIImageView alloc] initWithImage:backImage];
     UITapGestureRecognizer * backTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(back:)];
     backTap.numberOfTapsRequired = 1;
     [view addGestureRecognizer:backTap];
-    
-//    [button addSubview:view];
-//    [view addSubview:button];
     return view;
 }
 
