@@ -61,7 +61,6 @@
 }
 
 
-
 -(void)processChildGroups:(ALChannel *)alChannel {
     //Get INFO of Child
     for(NSNumber *channelKey in alChannel.childKeys){
@@ -428,15 +427,15 @@
 {
     NSMutableDictionary *grpMetaData = [NSMutableDictionary new];
     
-    [grpMetaData setObject:@":adminName created group" forKey:AL_CREATE_GROUP_MESSAGE];
-    [grpMetaData setObject:@":userName removed" forKey:AL_REMOVE_MEMBER_MESSAGE];
-    [grpMetaData setObject:@":userName added" forKey:AL_ADD_MEMBER_MESSAGE];
-    [grpMetaData setObject:@":userName joined" forKey:AL_JOIN_MEMBER_MESSAGE];
-    [grpMetaData setObject:@"Group renamed to :groupName" forKey:AL_GROUP_NAME_CHANGE_MESSAGE];
-    [grpMetaData setObject:@":groupName icon changed" forKey:AL_GROUP_ICON_CHANGE_MESSAGE];
-    [grpMetaData setObject:@":userName left" forKey:AL_GROUP_LEFT_MESSAGE];
-    [grpMetaData setObject:@":groupName deleted" forKey:AL_DELETED_GROUP_MESSAGE];
-    [grpMetaData setObject:@(NO) forKey:@"HIDE"];
+    [grpMetaData setObject:@":adminName criou o grupo" forKey:AL_CREATE_GROUP_MESSAGE];
+    [grpMetaData setObject:@":userName foi removido" forKey:AL_REMOVE_MEMBER_MESSAGE];
+    [grpMetaData setObject:@":userName foi adiconado" forKey:AL_ADD_MEMBER_MESSAGE];
+    [grpMetaData setObject:@":userName entrou no grupo" forKey:AL_JOIN_MEMBER_MESSAGE];
+    [grpMetaData setObject:@"Grupo foi renomeado para :groupName" forKey:AL_GROUP_NAME_CHANGE_MESSAGE];
+    [grpMetaData setObject:@":groupName teve o ícone alterado" forKey:AL_GROUP_ICON_CHANGE_MESSAGE];
+    [grpMetaData setObject:@":userName saiu" forKey:AL_GROUP_LEFT_MESSAGE];
+    [grpMetaData setObject:@"Grupo :groupName foi deletado" forKey:AL_DELETED_GROUP_MESSAGE];
+    [grpMetaData setObject:@(NO) forKey:@"Esconder"];
     
     return grpMetaData;
 }

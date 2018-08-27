@@ -207,6 +207,7 @@
     
     NSDate *current = [[NSDate alloc] init];
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setLocale:[NSLocale localeWithLocaleIdentifier:@"pt-br"]];
     [format setDateFormat:@"dd/MM/yyyy"];
     
     NSString *todaydate = [format stringFromDate:current];
@@ -234,7 +235,7 @@
         }
         else
         {
-            [format setDateFormat:@"EEEE MMM dd,yyyy"];
+            [format setDateFormat:@"EEEE, dd 'de' MMM 'de' yyyy"];
             self.dateCellText = [format stringFromDate:newerDate];
         }
         return YES;
@@ -248,7 +249,7 @@
     double old = [almessage.createdAtTime doubleValue];
     NSDate *olderDate = [[NSDate alloc] initWithTimeIntervalSince1970:(old/1000)];
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    
+    [format setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"pt_BR"]];
     [format setDateFormat:@"dd/MM/yyyy"];
     
     NSString *string = [format stringFromDate:olderDate];
@@ -271,7 +272,7 @@
         actualDate = NSLocalizedStringWithDefaultValue(@"yesterday", [ALApplozicSettings getLocalizableName], [NSBundle mainBundle], @"Yesterday", @"");    }
     else
     {
-        [format setDateFormat:@"EEEE MMM dd,yyyy"];
+        [format setDateFormat:@"EEEE, dd 'de' MMM 'de' yyyy"];
         actualDate = [format stringFromDate:olderDate];
     }
     

@@ -165,7 +165,7 @@
 
 -(NSString *)getCreatedAtTime:(BOOL)today {
 
-    NSString *formattedStr = today?@"hh:mm a":@"dd MMM";
+    NSString *formattedStr = today?@"HH:mm a":@"dd MMM";
 
     NSString *formattedDateStr;
 
@@ -209,7 +209,7 @@
 -(NSString *)getCreatedAtTimeChat:(BOOL)today {
 
    // NSString *formattedStr = today?@"hh:mm a":@"dd MMM hh:mm a";
-    NSString *formattedStr = @"hh:mm a";
+    NSString *formattedStr = @"HH:mm";
     NSString *formattedDateStr = [ALUtilityClass formatTimestamp:[self.createdAtTime doubleValue]/1000 toFormat:formattedStr];
 
     return formattedDateStr;
@@ -218,7 +218,7 @@
 -(BOOL)isDownloadRequired{
 
     //TODO:check for SD card
-    return (self.fileMeta && !self.imageFilePath);
+    return (self.fileMeta && !self.imageFilePath); 
 }
 
 -(BOOL)isUploadRequire{

@@ -3651,6 +3651,7 @@ style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
     NSDate *today = [NSDate date];
     NSDate *yesterday = [today dateByAddingTimeInterval: -86400.0];
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setLocale:[NSLocale localeWithLocaleIdentifier:@"pt-br"]];
     [format setDateFormat:@"dd/MM/yyyy"];
     NSString *todaydate = [format stringFromDate:current];
     NSString *yesterdaydate =[format stringFromDate:yesterday];
@@ -3708,7 +3709,7 @@ style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
     {
         
         NSString *str = NSLocalizedStringWithDefaultValue(@"lastSeenYesterday", [ALApplozicSettings getLocalizableName], [NSBundle mainBundle], @"Last seen yesterday at %@", @"");
-        [format setDateFormat:@"hh:mm a"];
+        [format setDateFormat:@"HH:mm"];
         
         str = [NSString stringWithFormat:str,[format stringFromDate:date]];
         if([str hasPrefix:@"0"])

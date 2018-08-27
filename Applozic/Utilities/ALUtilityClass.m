@@ -26,8 +26,7 @@
 {
     
     NSDateFormatter * formatter =  [[NSDateFormatter alloc] init];
-    [formatter setAMSymbol:@"am"];
-    [formatter setPMSymbol:@"pm"];
+    [formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"pt_BR"]];
     [formatter setDateFormat:forMatStr];
     formatter.timeZone = [NSTimeZone localTimeZone];
     
@@ -379,12 +378,9 @@
         self.msgdate = NSLocalizedStringWithDefaultValue(@"yesterdayMsgViewText", [ALApplozicSettings getLocalizableName], [NSBundle mainBundle], @"yesterday" , @"");
     }
     
-    [format setDateFormat:@"hh:mm a"];
-    [format setAMSymbol:@"am"];
-    [format setPMSymbol:@"pm"];
+    [format setDateFormat:@"HH:mm"];
     
     self.msgtime = [format stringFromDate:date];
-    
 }
 
 +(UIImage *)setVideoThumbnail:(NSString *)videoFilePATH
